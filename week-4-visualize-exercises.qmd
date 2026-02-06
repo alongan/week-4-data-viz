@@ -99,7 +99,11 @@ ggplot(data = mpg) +
                            color = class,
                            shape = class,
                            alpha = class,
-                           size = class)) 
+                           size = class)) +
+  labs(x = "Engine Size Displacement",
+       y = "Highway Mileage (mpg)",
+       title = "The bigger the engine the less mileage on the highway") +
+  theme_light()
 ```
 
 ## Help Me
@@ -125,7 +129,14 @@ Facet grid makes a grid of graphs that relate to each other by specifying the va
 Make a bar chart `class` colored by `class`. Use the help page for `geom_bar` to choose a "color" aesthetic for class.
 
 ```{r}
-#| label: add-label-6
+#| label: mpg-barplot-withclass
+
+ggplot(mpg) +
+  geom_bar(aes(x=class, fill = class)) +
+  guides(fill = "none") +
+  labs(x = "class of Vehicle",
+       y = "Number of Vehicles in Sample") +
+  theme_bw()
 ```
 
 ## Quiz
@@ -133,12 +144,15 @@ Make a bar chart `class` colored by `class`. Use the help page for `geom_bar` to
 What will this code do?
 
 ```{r}
-ggplot(mpg) + 
-  geom_point(aes(displ, hwy)) +
-  geom_smooth(aes(displ, hwy)) 
-#  ggsave("example.jpg")
+#| label: quiz
+ggplot(mpg, aes(x = displ, y = hwy)) + 
+  geom_point() +
+  geom_smooth() 
+
+ggsave("example.jpg")
 ```
 
+This code will create a graphic with points and a best fit line of mpg data with displ on the x axis and hwy on the y axis. It adds two geometries to one plot.
 
 ***
 
