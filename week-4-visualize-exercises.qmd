@@ -1,6 +1,6 @@
 ---
 title: "Visualize Data"
-author: "Your Name"
+author: "Audrey Longan"
 format: gfm
 execute: 
   echo: true
@@ -25,7 +25,7 @@ Try your code again
 #| label: setup
 #| include: false
 
-
+library(tidyverse)
 
 ```
 
@@ -37,7 +37,7 @@ Add a setup chunk that loads the tidyverse packages.
 
 
 ```{r}
-#| label: add-label-0
+#| label: first-rows-mpg
 head(mpg)
 ```
 
@@ -47,8 +47,10 @@ head(mpg)
 Run the code on the slide to make a graph. Pay strict attention to spelling, capitalization, and parentheses!
 
 ```{r}
-#| label: add-label-1
+#| label: mpg-scatterplot
 #add code
+ggplot(mpg) +
+  geom_point(aes(x = displ, y = hwy))
 ```
 
 
@@ -57,9 +59,9 @@ Run the code on the slide to make a graph. Pay strict attention to spelling, cap
 Replace this scatterplot with one that draws boxplots. Use the cheatsheet. Try your best guess.
 
 ```{r}
-#| label: add-label-2
+#| label: mpg-boxplot
 ggplot(data = mpg) +
-  geom_point(mapping = aes(x = class, y = hwy))
+  geom_boxplot(mapping = aes(x = class, y = hwy))
 ```
 
 
