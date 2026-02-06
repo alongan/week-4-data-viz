@@ -70,7 +70,9 @@ ggplot(data = mpg) +
 Make a histogram of the `hwy` variable from `mpg`. Hint: do not supply a y variable.
 
 ```{r}
-#| label: add-label-3
+#| label: mpg-histogram
+ggplot(mpg) +
+  geom_histogram(aes(x = hwy))
 ```
 
 ## Your Turn 4
