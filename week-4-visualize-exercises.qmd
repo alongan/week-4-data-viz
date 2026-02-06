@@ -80,7 +80,10 @@ ggplot(mpg) +
 Use the help page for `geom_histogram` to make the bins 2 units wide.
 
 ```{r}
-#| label: add-label-4
+#| label: mpg-histogram-bins2
+
+ggplot(mpg) +
+  geom_histogram(aes(x = hwy), binwidth = 2)
 ```
 
 
@@ -89,7 +92,7 @@ Use the help page for `geom_histogram` to make the bins 2 units wide.
 Add `color`, `size`, `alpha`, and `shape` aesthetics to your graph. Experiment.  
 
 ```{r}
-#| label: add-label-5
+#| label: mpg-scatterplot-experiment
 ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, 
                            y = hwy))
