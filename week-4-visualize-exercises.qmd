@@ -95,7 +95,11 @@ Add `color`, `size`, `alpha`, and `shape` aesthetics to your graph. Experiment.
 #| label: mpg-scatterplot-experiment
 ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, 
-                           y = hwy))
+                           y = hwy,
+                           color = class,
+                           shape = class,
+                           alpha = class,
+                           size = class)) 
 ```
 
 ## Help Me
@@ -104,16 +108,17 @@ What do `facet_grid()` and `facet_wrap()` do?
 (run the code, interpret, convince your group)
 
 ```{r}
-#| label: add-label-help-me
+#| label: facets
 # Makes a plot that the commands below will modify
 q <- ggplot(mpg) + geom_point(aes(x = displ, y = hwy))
 
-q + facet_grid(. ~ cyl)
-q + facet_grid(drv ~ .)
-q + facet_grid(drv ~ cyl)
-q + facet_wrap(~ class)
+q + facet_grid(. ~ cyl) #makes one row, 4 columns by cyl
+q + facet_grid(drv ~ .) #makes 3 rows, one column by drv
+q + facet_grid(drv ~ cyl) #makes 3 rows by drv, 4 columns by cyl
+q + facet_wrap(~ class) #makes a graph for each value in the class
 ```
 
+Facet grid makes a grid of graphs that relate to each other by specifying the variables that you want faceted, while facet wrap makes a grid of graphs based on a variable by stacking them until there is no more space, instead of making specific columns and rows.
 
 ## Your Turn 6
 
